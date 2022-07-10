@@ -1,0 +1,654 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop.tpl</title>
+    
+    <script src="https://use.fontawesome.com/1811a996b4.js"></script>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.logo img{
+      height: 80px;
+      width: 80px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+
+.header{
+    border-bottom: 1px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color: #fff;
+    top: 0;
+    position: sticky;
+    z-index: 999;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+.hamburger{
+    display: none;
+}
+.bar{
+display: block;
+width: 25px;
+height: 3px;
+margin: 5px auto;
+-webkit-transition: all 0.3s ease-in;
+transition: all 0.3s ease-in-out;
+background-color: #c9558b;
+}
+
+.hamburger #line{
+    width: 14px;
+}
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li{
+margin-left: 3rem;
+
+}
+li i{
+    font-size: 20px;
+    transition: all .3s ease-in-out;
+}
+
+
+a{
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+ 
+
+.navbar li a:hover,
+.navbar li a.active,
+.navbar li i:hover{
+    color: #f739e4;
+}
+
+#nav-hide{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+#nav-hide i{
+    margin-left: 1.5rem;
+    color: #333;
+    font-weight: 600;
+}
+#nav-hide i:hover{
+    color: #f739e4;
+}
+/**NAVBAR media query*/
+
+@media only screen and (max-width:768px){
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top:5rem;
+        flex-direction: column;
+        background: #fcf4f8;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: .3s ease-in;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+    .nav-menu.active{
+        left: 0;
+    }
+    li{
+        margin: 2.5rem 0;
+    }
+    .hamburger{
+        display: block;
+        cursor: pointer;
+    }
+    #nav-visible{
+        display: none;
+    }
+    #nav-hide{
+        display: flex;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .logo{
+        text-align: center;
+        justify-content: center;
+        margin-left: 40px;
+    }
+
+    /**slider**/
+}
+.slider-text{
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 5rem;
+}
+.slider-text h4{
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 20px;
+    color: #d363a1;
+}
+.slider-text p{
+    font-weight: 700;
+    padding: 0.5rem;
+    font-size: 18px;
+}
+.slider-text p:hover{
+    color: #c9558b;
+}
+.box{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 15px;
+    overflow: hidden;
+margin: 2rem;
+background: #f9f2f6;
+}
+
+.box:hover{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+.slider{
+    overflow: hidden;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.slide-img{
+    height: 350px;
+    width: 300px;
+    
+}
+.slide-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+.detail-box{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.type{
+    display: flex;
+    flex-direction: column;
+}
+.type a{
+    color: rgb(66, 66, 66);
+    margin: 5px 0;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    padding-right: 8px;
+}
+.type .price{
+    color:rgb(70, 69, 69);
+    font-weight: 700;
+}
+.type a:hover, .type .price:hover, .detail-box span i:hover{
+color: #d363a1;
+transform: scale(1.1);
+}
+.rating{
+    color: gold;
+}
+
+
+/**FOOTER**/
+footer{
+    background-color: #ff7daf;
+    background-image: linear-gradient(315deg, #f5bfd3 0%, #ffffff 74%);
+}
+
+footer p{
+    color: #222;
+}
+footer{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.col-f{
+    margin-bottom: 2em;
+}
+.col-f h4{
+    color: #c9558b;
+    text-transform: uppercase;
+}
+footer .col-f p{
+text-align: left;
+}
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer a{
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(66, 66, 66);
+    margin-bottom: 10px;
+}
+
+footer .follow{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+footer .follow i{
+    color: #f750ac;
+    padding-right: 4px;
+    cursor: pointer;
+}
+footer .follow i:hover,
+footer a:hover{
+    color: #f01e92;
+     
+}
+footer .copyright{
+    width: 100%;
+    text-align: center;
+}
+.section-p1{
+    padding: 20px;
+}
+    </style>
+</head>
+
+
+
+
+
+
+<body>
+     <!--------Navbar-->
+     <header class="header">
+        <nav class="navbar">
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar" id="line"></span>
+            <span class="bar"></span>
+          </div>
+       <a href="#" class="logo"><img src="images/logo-removebg-preview.png" alt=""></a>
+        
+            <ul class="nav-menu">
+            <li><a href="" class="active">Home</a></li>
+            <li><a href="index.html">About</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="feature.html">Shop</a></li>
+               
+            </ul>
+              <ul class="nav-menu" id="nav-visible">
+                <li><i class="fa fa-search"></i></li>
+                <li><i class="fa fa-shopping-bag"></i></li>
+              </ul>
+
+            <ul id="nav-hide">
+              <li><i class="fa fa-search"></i></li>
+                <li><i class="fa fa-shopping-bag"></i></li>
+              
+            </ul>
+</nav>
+</header>
+
+<!------navbar-->
+    <div class="slider-text">
+        <h4>Featured Products</h4>
+        <p>Find the perfect style for you</p>
+      </div>
+      <section class="slider">
+      <div class="box">
+            <div class="slide-img">
+          <img src="images/Purplept-removebg-preview.png" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+           
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+            <span><i class="fa fa-shopping-bag"></i></span>
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/clips2.jpeg" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+          
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+            
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/nails3.jpeg" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+          
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                
+               </div>
+            </div>
+          
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/girl.jpeg" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+            <a href="#">$40</a>
+          
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/braces_girl-removebg-preview.png" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+          
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+            
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/toslocs.jpeg" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+           
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+          
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/CHARCOAL-removebg-preview.png" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+        
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+          
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/Taes.jpeg" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+          
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+          
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/clip_1-removebg-preview.png" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+           
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+          
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/nails2-removebg-preview.png" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+           
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+          
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+          <img src="images/blackpt-removebg-preview.png" alt="#">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+            
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+          
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+          <div class="box">
+            <div class="slide-img">
+        <img src="images/pt2-removebg-preview.png" alt="">
+            </div>
+            <div class="detail-box">
+          <div class="type">
+            
+            <a href="#" class="price">$40</a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+               </div>
+            </div>
+          
+            <span><i class="fa fa-shopping-bag"></i></span>
+            
+          
+            </div>
+          </div>
+      </section>
+    <!----------FOOTER-->
+ 
+ <footer class="section-p1">
+    <div class="col-f">
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p><strong>Phone:</strong> +23480123456</p>
+        <p><strong>Hours:</strong> 8pm - 4pm, Mon-Sat</p>
+    </div>
+     
+     <div class="follow">
+         <h4>Follow Us</h4>
+         <div class="icon">
+             <i class="fa fa-facebook-f"></i>
+             <i class="fa fa-twitter"></i>
+             <i class="fa fa-instagram"></i>
+             <i class="fa fa-pinterest-p"></i>
+             <i class="fa fa-youtube-play"></i>
+         </div>
+     </div>
+     </div>
+  
+  <div class="col">
+     <h4>About</h4>
+     <a href="#">About Us</a>
+     <a href="#">Delivery Information</a>
+     <a href="#">Privacy Information</a>
+     <a href="#">Terms & Conditions</a>
+     <a href="#">Contact Us</a>
+  </div>
+  <div class="col">
+     <h4>My Account</h4>
+     <a href="#">Sign In</a>
+     <a href="#">View Cart</a>
+     <a href="#">My Wishlist</a>
+     <a href="#">Track My Orders</a>
+     <a href="#">Help</a>
+     </div>
+     <div class="col-pay">
+         <h4>Secure Payments Gateways</h4>
+         <i class="fa fa-cc-mastercard"></i>
+         <i class="fa fa-cc-visa"></i>
+         <i class="fa fa-cc-paypal"></i>
+     </div>
+  
+     <div class="copyright">
+         <p>All rights reserved. Use of this website signifies your agreement to the Terms of Use.</p>
+     </div>
+     </footer>
+     <script src="js/index.js"></script>
+</body>
+</html>
